@@ -1,3 +1,27 @@
+document.getElementById('intro-video').addEventListener('ended', function() {
+    // Optionally, add a fade-out effect here before hiding.
+    document.getElementById('intro-container').style.display = 'none';
+  });
+
+const introContainer = document.getElementById('intro-container');
+const introVideo = document.getElementById('intro-video');
+const fadeDuration = 2; // seconds
+
+introVideo.addEventListener('timeupdate', function() {
+    // If there's less than or equal to 1 second left, start fading
+    if (introVideo.duration - introVideo.currentTime <= fadeDuration) {
+        introContainer.style.opacity = 0;
+    }
+});
+
+// Once the video ends, remove the container from the flow
+introVideo.addEventListener('ended', function() {
+    introContainer.addEventListener('transitionend', function() {
+        introContainer.style.display = 'none';
+    });
+});
+
+
 /*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),
