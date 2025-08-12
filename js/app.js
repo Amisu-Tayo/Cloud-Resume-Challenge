@@ -242,16 +242,5 @@ window.onload = function () {
 };
 
 /*====================  SEND EMAIL ====================*/
-function sendEmail(){
-    Email.send({
-        Host : "smtp.gmail.com",
-        Username : "haleemah.amisu@gmail.com",
-        Password : "BurnThem@l1!",
-        To : 'haleemah.amisu@gmail.com',
-        From : document.getElementById("myEmail").value,
-        Subject : document.getElementById("myTitle").value,
-        Body : document.getElementById("myMessage").value
-    }).then(
-      message => alert("Message Sent!")
-    );
+
 }
